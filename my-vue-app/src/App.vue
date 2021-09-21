@@ -26,5 +26,8 @@ import ToggleSwitch from './components/ToggleSwitch.vue'
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
 }
 </style>

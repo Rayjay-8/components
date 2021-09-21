@@ -1,28 +1,19 @@
 <script setup>
 import { ref, computed } from 'vue'
 
-//const selecionado = ref(false)
+let opcselect = ref('opt3')
 //opção selecionada padrão
-var opcselect = ref('opt2')
+//var opcselect = "rayyy"
 
 
-function select(value){
-    console.log("---------")
-
-    console.log(opcselect.value)
-    opcselect = ref(opcselect.value)
-    const twiceTheCounter = computed(() => opcselect = value)
-
-    console.log(opcselect.value)
-}
 </script>
 
 <template>
     <div class="label">
         
-        <p @click="select('opt1')" :class="{ 'pSelect': opcselect == 'opt1' }">opt1</p>
-        <p @click="select('opt2')" :class="{ 'pSelect': opcselect == 'opt2' }">opt2</p>
-        <p @click="select('opt3')" :class="{ 'pSelect': opcselect == 'opt3' }">opt3</p>
+        <p @click="opcselect = 'opt1'" :class="{ 'pSelect': opcselect == 'opt1' }">opt1</p>
+        <p @click="opcselect = 'opt2'" :class="{ 'pSelect': opcselect == 'opt2' }">opt2</p>
+        <p @click="opcselect = 'opt3'" :class="{ 'pSelect': opcselect == 'opt3' }">opt3</p>
     </div>
 
     <h1>opcao selecionada {{opcselect}}</h1>
@@ -42,9 +33,16 @@ p{
     padding: 8px;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
+    cursor: pointer;
+}
+p:hover{
+    background-color: rgb(229, 216, 245);
 }
 .pSelect{
     
     background-color: #242350;
+}
+.pSelect:hover{
+    background-color:#242350!important;
 }
 </style>
