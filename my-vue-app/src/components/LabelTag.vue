@@ -1,19 +1,30 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
-let opcselect = ref('opt3')
-//opção selecionada padrão
-//var opcselect = "rayyy"
 
+
+const items = [
+        {'message':'Label-1'},
+        {'message':'Label-2'},
+        {'message':'Label-3'},
+        {'message':'Label-4'}
+    ]
+
+let ValorPadrao = 'Label-2'
+let opcselect = ref(ValorPadrao)
 
 </script>
 
+
+
 <template>
-    <div class="label">
-        
-        <p @click="opcselect = 'opt1'" :class="{ 'pSelect': opcselect == 'opt1' }">opt1</p>
-        <p @click="opcselect = 'opt2'" :class="{ 'pSelect': opcselect == 'opt2' }">opt2</p>
-        <p @click="opcselect = 'opt3'" :class="{ 'pSelect': opcselect == 'opt3' }">opt3</p>
+    
+    <div class="label" >
+      
+    
+        <div v-for="item in items" :key="item.message">
+            <p @click="opcselect = item.message" :class="{ 'pSelect': opcselect == item.message }">{{item.message}}</p>
+        </div>
     </div>
 
     <h1>opcao selecionada {{opcselect}}</h1>
@@ -23,26 +34,28 @@ let opcselect = ref('opt3')
 .label {
     display: flex;
     width: fit-content;
-    color: #42b983;
-    border: 2px solid #222;
+    color: #000000;
+    border: 1.5px solid #9e9e9e;
     border-radius: 8px;
 }
 
 p{
-    margin: 2px;
+    margin: 3px;
     padding: 8px;
     background-color: rgb(255, 255, 255);
-    border-radius: 8px;
+    border-radius: 0.3rem;
+    color: #9e9e9e;
     cursor: pointer;
 }
 p:hover{
-    background-color: rgb(229, 216, 245);
+    background-color: #ececec30;
 }
 .pSelect{
     
-    background-color: #242350;
+    background-color: #464656;
+    color: aliceblue;
 }
 .pSelect:hover{
-    background-color:#242350!important;
+    background-color:#464656!important;
 }
 </style>
