@@ -7,19 +7,27 @@ import ToggleSwitch from './components/ToggleSwitch.vue'
 import Usandolots from './components/Usandoslots.vue'
 
 
+
 </script>
 
 <template>
-
-  <!-- <Usandolots title="Tab 1"> exemplo 1</Usandolots>
-  <Usandolots title="Tab 2"> exemplo 2</Usandolots>
-  <Usandolots title="Tab 3"> exemplo 3</Usandolots> -->
-
-  <h1>{{items}}</h1>
-
-  <LabelTag></LabelTag>
-
+  <LabelTag @erro-grave-004="triggerToast" />
 </template>
+
+<script>
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    const showToast = ref(false)
+    const triggerToast = () => {
+      showToast.value = true;
+      setTimeout(() => showToast.value = false, 3000)
+    }
+    return { showToast, triggerToast }
+  }
+}
+</script>
 
 <style>
 #app {

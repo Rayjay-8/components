@@ -1,17 +1,33 @@
-<script setup>
+<script>
+
+const triggerToast = () =>{
+  console.log("jhaskdhjks")
+}
+
 import { ref } from 'vue'
 
+    export default {
 
+        setup(prop, { emit } ) {
+            
+        const items = [
+                {'message':'Label-1'},
+                {'message':'Label-2'},
+                {'message':'Label-3'},
+                {'message':'Label-4'}
+            ]
 
-const items = [
-        {'message':'Label-1'},
-        {'message':'Label-2'},
-        {'message':'Label-3'},
-        {'message':'Label-4'}
-    ]
+        let ValorPadrao = 'Label-2'
+        let opcselect = ref(ValorPadrao)
+        if (opcselect.value == 'Label-4'){
+            emit("erro-grave-004")
+        }
+        return { opcselect, items }
+    }
 
-let ValorPadrao = 'Label-2'
-let opcselect = ref(ValorPadrao)
+    
+}
+
 
 </script>
 
@@ -29,6 +45,8 @@ let opcselect = ref(ValorPadrao)
 
     <h1>opcao selecionada {{opcselect}}</h1>
 </template>
+
+
 
 <style scoped>
 .label {
